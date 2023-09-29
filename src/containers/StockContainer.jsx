@@ -1,11 +1,19 @@
-import React from 'react';
-import StockCard from './StockCard';
+import StockCard from '../components/StockCard';
 
-export default function StockContainer() {
+
+export default function StockContainer({ buyOrSell, stocks }) {
+
+
   return (
     <div>
       <h2>Stocks</h2>
-      { /* render the list of stocks here using the StockCard component */ }
+      {
+        stocks && stocks.map(stock => {
+          return (
+            <StockCard key={stock.price} stock={stock} buyOrSell={buyOrSell} />
+          )
+        })
+      }
     </div>
   );
 }

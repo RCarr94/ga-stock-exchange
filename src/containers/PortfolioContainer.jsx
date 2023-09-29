@@ -1,5 +1,5 @@
 import React from 'react';
-import Stock from './StockCard'
+import Stock from '../components/StockCard'
 
 export default function PortfolioContainer() {
   return (

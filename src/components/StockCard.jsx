@@ -1,12 +1,17 @@
 import React from 'react'
 
-export default function StockCard() {
+export default function StockCard({ stock, buyOrSell, myStocks }) {
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">{/* Company Name */}</h5>
-        <p className="card-text">{/* stock price */}</p>
-        { /* use a ternary to display a BUY or SELL button */}
+        <h5 className="card-title">{stock.name}</h5>
+        <p className="card-text">${stock.price}</p>
+        {
+          myStocks && myStocks.includes(stock) ?
+          <button onClick={() => buyOrSell(stock, "sell")}>SELL</button>
+          :
+          <button onClick={() => buyOrSell(stock, "buy")}>BUY</button>
+        }
       </div>
     </div>
   );
